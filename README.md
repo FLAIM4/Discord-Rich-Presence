@@ -1,36 +1,33 @@
-## Discord Rich Presence
+# Discord Rich Presence
 
-Ниже приведен код на Python для реализации функционала Discord Rich Presence с использованием библиотеки pypresence. Этот код отображает информацию о текущем использовании оперативной памяти (RAM) и процессора (CPU) на вашей системе, а также добавляет изображение в качестве большой обложки.
+Этот скрипт на Python использует библиотеку `pypresence` для отображения информации о системе в Discord Rich Presence.
 
-python
-from pypresence import Presence
-import time
-import psutil
+## Подготовка
+- Python 3.x
+- Библиотека `pypresence`
+- Библиотека `psutil`
 
-client_id = "id"
-RPC = Presence(client_id)
-RPC.connect()
+## Установка
+1. Клонируйте или загрузите репозиторий.
+2. Установите необходимые библиотеки, выполнив следующую команду:
+   
 
-while True:
-    time.sleep(1)
-    ram1 = psutil.virtual_memory().percent
-    cpu1 = psutil.cpu_percent()
-    RPC.update(
-        details=f"RAM: {ram1}% CPU: {cpu1}%",
-        large_image='https://media.tenor.com/sKSw-rqsFxQAAAAi/foxy-foxplushy.gif',
-    )
-Установка модулей
-Перед запуском кода необходимо установить следующие модули Python:
+   pip install pypresence psutil
+   
+3. Замените переменную `client_id` на ваш реальный идентификатор клиента, полученный из Discord Developer Portal.
 
-pypresence
-psutil
-Вы можете установить их, используя менеджер пакетов pip, выполнив следующие команды:
+## Использование
+1. Запустите скрипт с помощью следующей команды:
+   
 
-pip install pypresence
-pip install psutil
-Запуск кода
-После установки модулей выполните код на Python. Он будет обновлять информацию о состоянии оперативной памяти и процессора каждую секунду и отображать ее в Discord с указанным в коде изображением в качестве большой обложки.
+   python имяскрипта.py
+   
+2. Скрипт будет непрерывно обновлять Discord Rich Presence с текущим использованием оперативной памяти и ЦП.
+3. Он также будет отображать большое изображение плюшевой лисички.
 
-Убедитесь, что заменили значение client_id на свой собственный. Вы можете получить этот идентификатор, создав приложение на Discord Developer Portal.
+## Автор
+- [pypresence](https://github.com/qwertyquerty/pypresence) - библиотека от qwertyquerty
+- [psutil](https://github.com/giampaolo/psutil) - библиотека от giampaolo
 
-Надеюсь, это поможет! Если у вас возникнут дополнительные вопросы, не стесняйтесь задавать.
+## Лицензия
+Этот проект распространяется под [лицензией MIT](LICENSE).
